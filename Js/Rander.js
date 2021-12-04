@@ -20,8 +20,8 @@ function getRandomText(arr) {
 
 function getRandomboxOffice(minValue, maxValue) {
   const value = getRandomIntInclusive(minValue, maxValue)
-
-  return `$${value.toLocaleString('de-DE')}`
+  //`$${value.toLocaleString('de-DE')}`
+  return value
 }
 
 export {

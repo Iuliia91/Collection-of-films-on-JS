@@ -8,7 +8,7 @@ import {
 
 function generatmokCart() {
   let arr = []
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     let objCart = {
       titel: getRandomText(titel),
       releseDate: gerRandomDate('1991-01-01', '2021-12-31'),
@@ -16,6 +16,9 @@ function generatmokCart() {
       poster:
         'https://m.media-amazon.com/images/M/MV5BNzIxMjYwNDEwN15BMl5BanBnXkFtZTgwMzk5MDI3NTM@._V1_SX300.jpg',
       totalSum: getRandomboxOffice(100000000, 1000000000),
+      // .toLocaleString(
+      //   'de-DE'
+      // ),
       rating: getRandomIntInclusive(1, 10),
       director: 'J.A. Bayona',
     }
@@ -23,15 +26,13 @@ function generatmokCart() {
   }
   return arr
 }
+export let areaofcards = document.querySelector('.film-list')
 
-function createCards(funct) {
-  let areaofcards = document.querySelector('.film-list')
-
+function createCards(obj) {
+  const cart = obj
   const elementTemplate = document.querySelector('#card-template')
-  const cart = funct
-
-  cart.forEach((item) => {
-    const clonbox = elementTemplate.content.cloneNode(true)
+  obj.forEach((item) => {
+    let clonbox = elementTemplate.content.cloneNode(true)
 
     const elemtitel = clonbox.querySelector('.card-header__title')
     elemtitel.textContent = item.titel
@@ -54,15 +55,16 @@ function createCards(funct) {
     const elemttotalSum = clonbox.querySelector(
       '.film-info__box-office>.film-info__text'
     )
-    elemttotalSum.textContent = item.totalSum
+    // item.totalSum
+    elemttotalSum.textContent = `$${item.totalSum.toLocaleString('de-DE')}`
 
     const elementabout = clonbox.querySelector(
       '.film-info__plot>.film-info__text'
     )
     elementabout.innerHTML = item.about
+
     areaofcards.appendChild(clonbox)
   })
 }
-let b = generatmokCart()
 
-export { b, createCards }
+export { createCards, generatmokCart }
