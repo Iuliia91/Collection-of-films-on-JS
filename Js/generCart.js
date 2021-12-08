@@ -16,9 +16,6 @@ function generatmokCart() {
       poster:
         'https://m.media-amazon.com/images/M/MV5BNzIxMjYwNDEwN15BMl5BanBnXkFtZTgwMzk5MDI3NTM@._V1_SX300.jpg',
       totalSum: getRandomboxOffice(100000000, 1000000000),
-      // .toLocaleString(
-      //   'de-DE'
-      // ),
       rating: getRandomIntInclusive(1, 10),
       director: 'J.A. Bayona',
     }
@@ -29,7 +26,6 @@ function generatmokCart() {
 export let areaofcards = document.querySelector('.film-list')
 
 function createCards(obj) {
-  const cart = obj
   const elementTemplate = document.querySelector('#card-template')
   obj.forEach((item) => {
     let clonbox = elementTemplate.content.cloneNode(true)
@@ -55,7 +51,7 @@ function createCards(obj) {
     const elemttotalSum = clonbox.querySelector(
       '.film-info__box-office>.film-info__text'
     )
-    // item.totalSum
+
     elemttotalSum.textContent = `$${item.totalSum.toLocaleString('de-DE')}`
 
     const elementabout = clonbox.querySelector(

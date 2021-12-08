@@ -3,6 +3,7 @@ import { createCards, generatmokCart } from './generCart.js'
 const buttonrating = document.getElementById('rating')
 const buttonreleaseDate = document.getElementById('releaseDate')
 const buttonboxOffice = document.getElementById('boxOffice')
+
 function sortByRating() {
   buttonrating.addEventListener('click', () => {
     buttonrating.classList.add('button_checked')
