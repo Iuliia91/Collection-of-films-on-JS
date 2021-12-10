@@ -10,7 +10,8 @@
 </head>
 <body>
     <div class="container">
-        <main>
+
+       <main>
             <header>
                 <h1>Коллекция фильмов</h1>
             </header>
@@ -30,7 +31,7 @@
                 <button id="boxOffice" class="button">Бюджету</button>
             </div>
             <div class="film-list">
-                <div class="card">
+                <!-- <div class="card" data='id'>
                     <div class="card__header card-header">
                         <img class="card-header__image" src="./images/posters/jurassic-world.jpg" width="265" height="390"/>
                     </div>
@@ -103,9 +104,9 @@
                     </div>
                 </div>
         </main>
-    </div>
+    </div>-->
     <template id="card-template">
-        <div class="card">
+        <div class="card" data='id'>
             <div class="card__header card-header">
                 <img class="card-header__image" src="./images/posters/jurassic-world.jpg" width="265" height="390"/>
             </div>
@@ -140,7 +141,7 @@
                 </button>
             </div>
         </div>
-    </template>
+    </template>  
     <script type="module" src="Js/index.js" ></script>
    
 </body>

@@ -1,10 +1,10 @@
-import { text, titel } from './mokDate.js'
+import { text, titel } from './mok-date.js'
 import {
   getRandomIntInclusive,
   gerRandomDate,
   getRandomText,
   getRandomboxOffice,
-} from './Rander.js'
+} from './rander.js'
 
 function generatmokCart() {
   let arr = []

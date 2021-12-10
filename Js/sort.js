@@ -1,4 +1,4 @@
-import { createCards, generatmokCart } from './generCart.js'
+import { createCards, generatmokCart } from './gener-cart.js'
 
 const buttonrating = document.getElementById('rating')
 const buttonreleaseDate = document.getElementById('releaseDate')
@@ -14,9 +14,9 @@ function sortByRating() {
       return a.rating - b.rating
     })
 
-    const s = document.querySelectorAll('.card')
-    for (let i = 0; i < s.length; i++) {
-      s[i].remove()
+    const cardElement = document.querySelectorAll('.card')
+    for (let i = 0; i < cardElement.length; i++) {
+      cardElement[i].remove()
     }
 
     createCards(newobj)
@@ -34,8 +34,8 @@ function sortByDate() {
     })
 
     const s = document.querySelectorAll('.card')
-    for (let i = 0; i < s.length; i++) {
-      s[i].remove()
+    for (let i = 0; i < cardElement.length; i++) {
+      cardElement[i].remove()
     }
     createCards(newobj)
   })
@@ -53,8 +53,8 @@ function sortbyTotalSum() {
     })
 
     const s = document.querySelectorAll('.card')
-    for (let i = 0; i < s.length; i++) {
-      s[i].remove()
+    for (let i = 0; i < cardElement.length; i++) {
+      cardElement[i].remove()
     }
 
     createCards(newobj)
