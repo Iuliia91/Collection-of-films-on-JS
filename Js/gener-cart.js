@@ -1,10 +1,10 @@
-import { text, titel } from './mokDate.js'
+import { text, titel } from './mok-date.js'
 import {
   getRandomIntInclusive,
   gerRandomDate,
   getRandomText,
   getRandomboxOffice,
-} from './Rander.js'
+} from './rander.js'
 
 function generatmokCart() {
   let arr = []
@@ -16,9 +16,6 @@ function generatmokCart() {
       poster:
         'https://m.media-amazon.com/images/M/MV5BNzIxMjYwNDEwN15BMl5BanBnXkFtZTgwMzk5MDI3NTM@._V1_SX300.jpg',
       totalSum: getRandomboxOffice(100000000, 1000000000),
-      // .toLocaleString(
-      //   'de-DE'
-      // ),
       rating: getRandomIntInclusive(1, 10),
       director: 'J.A. Bayona',
     }
@@ -29,7 +26,6 @@ function generatmokCart() {
 export let areaofcards = document.querySelector('.film-list')
 
 function createCards(obj) {
-  const cart = obj
   const elementTemplate = document.querySelector('#card-template')
   obj.forEach((item) => {
     let clonbox = elementTemplate.content.cloneNode(true)
@@ -55,8 +51,8 @@ function createCards(obj) {
     const elemttotalSum = clonbox.querySelector(
       '.film-info__box-office>.film-info__text'
     )
-    // item.totalSum
-    elemttotalSum.textContent = `$${item.totalSum.toLocaleString('de-DE')}`
+    //`$${item.totalSum.toLocaleString('de-DE')}`
+    elemttotalSum.textContent = item.totalSum
 
     const elementabout = clonbox.querySelector(
       '.film-info__plot>.film-info__text'
