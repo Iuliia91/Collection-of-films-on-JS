@@ -6,22 +6,27 @@ function getSearching() {
   const titelelem = document.querySelectorAll('.card-header__title')
   const local = document.body.outerHTML
 
-  inputElem.oninput = function () {
-    const text = this.value
+  inputElem.oninput = (Event) => {
+    let userText = Event.target.value
 
-    inputElem.oninput = function () {
-      const text = this.value
-      if (text != '') {
-        titelelem.forEach((element) => {
-          for (let i = 0; i < cardElement.length; i++) {
-            if (element.innerText.search(text) == -1) {
-              let closestperent = element.closest('div')
-              closestperent.remove()
-            }
-          }
-        })
-      } else {
-      }
+    let arr = []
+
+    if (userText != '') {
+      cardElement.forEach((element) => {
+        if (
+          element
+            .querySelector('.card-header__title')
+            .innerHTML.search(userText) == -1
+        ) {
+          element.remove()
+        }
+      })
+    } else {
+      cardElement.forEach((element) => {
+        element.remove()
+      })
+      createCards(generatmokCart())
+      getSearching()
     }
   }
 }

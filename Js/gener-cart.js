@@ -51,8 +51,8 @@ function createCards(obj) {
     const elemttotalSum = clonbox.querySelector(
       '.film-info__box-office>.film-info__text'
     )
-
-    elemttotalSum.textContent = `$${item.totalSum.toLocaleString('de-DE')}`
+    //`$${item.totalSum.toLocaleString('de-DE')}`
+    elemttotalSum.textContent = item.totalSum
 
     const elementabout = clonbox.querySelector(
       '.film-info__plot>.film-info__text'
