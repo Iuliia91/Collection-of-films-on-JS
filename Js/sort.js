@@ -1,12 +1,14 @@
-import { createCards, generatmokCart } from './gener-cart.js'
+import { madeCardsFilms, getFilmsCards } from './gener-cart.js'
 
 import { getSearching } from './function-search.js'
+
+import { getToken, getFilmsData, arr } from './Api-request.js'
 
 const buttonrating = document.getElementById('rating')
 const buttonreleaseDate = document.getElementById('releaseDate')
 const buttonboxOffice = document.getElementById('boxOffice')
 
-function sortByRating() {
+function sortByRating(arr) {
   const gettargeteleme = document.querySelector('.search__input')
   buttonrating.addEventListener('click', () => {
     gettargeteleme.addEventListener('click', () => {
@@ -18,20 +20,21 @@ function sortByRating() {
     buttonreleaseDate.classList.remove('button_checked')
     buttonboxOffice.classList.remove('button_checked')
 
-    let newobj = generatmokCart().sort((a, b) => {
-      return a.rating - b.rating
+    let newobj = arr.sort((a, b) => {
+      return a.imdbRating - b.imdbRating
     })
 
+    console.log(newobj)
     const cardElement = document.querySelectorAll('.card')
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
     }
 
-    createCards(newobj)
+    madeCardsFilms(newobj)
   })
 }
 
-function sortByDate() {
+function sortByDate(arr) {
   buttonreleaseDate.addEventListener('click', () => {
     const gettargeteleme = document.querySelector('.search__input')
     buttonreleaseDate.classList.add('button_checked')
@@ -43,19 +46,19 @@ function sortByDate() {
       getSearching()
     })
 
-    let newobj = generatmokCart().sort((a, b) => {
-      return new Date(a.releseDate) - new Date(b.releseDate)
+    let newobj = arr.sort((a, b) => {
+      return new Date(a.Released) - new Date(b.Released)
     })
 
     const cardElement = document.querySelectorAll('.card')
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
     }
-    createCards(newobj)
+    madeCardsFilms(newobj)
   })
 }
 
-function sortbyTotalSum() {
+function sortbyTotalSum(arr) {
   buttonboxOffice.addEventListener('click', () => {
     const gettargeteleme = document.querySelector('.search__input')
 
@@ -68,16 +71,17 @@ function sortbyTotalSum() {
       getSearching()
     })
 
-    let newobj = generatmokCart().sort((a, b) => {
-      return a.totalSum - b.totalSum
+    let newobj = arr.sort((a, b) => {
+      return Number(a.BoxOffice) - Number(b.BoxOffice)
     })
 
+    console.log(newobj)
     const cardElement = document.querySelectorAll('.card')
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
     }
 
-    createCards(newobj)
+    madeCardsFilms(newobj)
   })
 }
 
