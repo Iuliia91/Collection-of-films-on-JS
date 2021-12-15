@@ -1,15 +1,13 @@
-import { createCards, generatmokCart } from './gener-cart.js'
+import { madeCardsFilms } from './gener-cart.js'
 
-function getSearching() {
+function getSearching(arr) {
   const inputElem = document.querySelector('.search__input')
-  const cardElement = document.querySelectorAll('.card')
-  const titelelem = document.querySelectorAll('.card-header__title')
-  const local = document.body.outerHTML
 
   inputElem.oninput = (Event) => {
-    let userText = Event.target.value
+    const cardElement = document.querySelectorAll('.card')
+    const titelelem = document.querySelectorAll('.card-header__title')
 
-    let arr = []
+    let userText = Event.target.value
 
     if (userText != '') {
       cardElement.forEach((element) => {
@@ -25,8 +23,7 @@ function getSearching() {
       cardElement.forEach((element) => {
         element.remove()
       })
-      createCards(generatmokCart())
-      getSearching()
+      madeCardsFilms(arr)
     }
   }
 }
