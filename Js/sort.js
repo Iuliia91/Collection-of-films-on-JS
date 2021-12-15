@@ -13,7 +13,7 @@ function sortByRating(arr) {
   buttonrating.addEventListener('click', () => {
     gettargeteleme.addEventListener('click', () => {
       buttonrating.classList.remove('button_checked')
-      getSearching()
+      getSearching(arr)
     })
 
     buttonrating.classList.add('button_checked')
@@ -24,7 +24,6 @@ function sortByRating(arr) {
       return a.imdbRating - b.imdbRating
     })
 
-    console.log(newobj)
     const cardElement = document.querySelectorAll('.card')
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
@@ -43,7 +42,7 @@ function sortByDate(arr) {
 
     gettargeteleme.addEventListener('click', () => {
       buttonreleaseDate.classList.remove('button_checked')
-      getSearching()
+      getSearching(arr)
     })
 
     let newobj = arr.sort((a, b) => {
@@ -68,7 +67,7 @@ function sortbyTotalSum(arr) {
 
     gettargeteleme.addEventListener('click', () => {
       buttonboxOffice.classList.remove('button_checked')
-      getSearching()
+      getSearching(arr)
     })
 
     let newobj = arr.sort((a, b) => {

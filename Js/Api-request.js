@@ -1,7 +1,5 @@
 import { madeCardsFilms, getFilmsCards } from './gener-cart.js'
 
-//import { getFilmsCards } from './index.js'
-
 function getToken() {
   return fetch('https://fe08-films.herokuapp.com/auth', {
     method: 'POST',
