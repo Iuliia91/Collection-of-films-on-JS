@@ -2,7 +2,7 @@ import { madeCardsFilms, getFilmsCards } from './gener-cart.js'
 
 import { getSearching } from './function-search.js'
 
-import { getToken, getFilmsData, arr } from './Api-request.js'
+import { saveChosenElement, selectChosenElement } from './save-chosen.js'
 
 const buttonrating = document.getElementById('rating')
 const buttonreleaseDate = document.getElementById('releaseDate')
@@ -19,8 +19,8 @@ function sortByRating(arr) {
     buttonrating.classList.add('button_checked')
     buttonreleaseDate.classList.remove('button_checked')
     buttonboxOffice.classList.remove('button_checked')
-
-    let newobj = arr.sort((a, b) => {
+    let newobj = []
+    newobj = arr.sort((a, b) => {
       return a.imdbRating - b.imdbRating
     })
 
@@ -29,6 +29,8 @@ function sortByRating(arr) {
       cardElement[i].remove()
     }
 
+    selectChosenElement()
+    saveChosenElement()
     madeCardsFilms(newobj)
   })
 }
@@ -74,7 +76,6 @@ function sortbyTotalSum(arr) {
       return Number(a.BoxOffice) - Number(b.BoxOffice)
     })
 
-    console.log(newobj)
     const cardElement = document.querySelectorAll('.card')
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()

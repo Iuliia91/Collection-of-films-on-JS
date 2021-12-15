@@ -1,13 +1,5 @@
-// import { text, titel } from './mok-date.js'
-// import {
-//   getRandomIntInclusive,
-//   gerRandomDate,
-//   getRandomText,
-//   getRandomboxOffice,
-// } from './rander.js'
-
 import { getSearching } from './function-search.js'
-import { getFilmsData, getToken } from './Api-request.js'
+
 import { sortByRating, sortByDate, sortbyTotalSum } from './sort.js'
 import { saveChosenElement, selectChosenElement } from './save-chosen.js'
 
