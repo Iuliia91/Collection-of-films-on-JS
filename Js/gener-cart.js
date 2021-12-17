@@ -33,10 +33,10 @@ function getFilmsCards(arr) {
 
   sortbyTotalSum(newarr)
   getSearching(newarr)
-
-  madeCardsFilms(newarr)
-  selectChosenElement()
   saveChosenElement()
+  selectChosenElement()
+  madeCardsFilms(newarr)
+
   return newarr
 }
 

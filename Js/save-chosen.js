@@ -1,10 +1,13 @@
 import { madeCardsFilms, getFilmsCards, areaofcards } from './gener-cart.js'
+import { getToken, getFilmsData, arr } from './Api-request.js'
+getToken()
 
 const elemcheckbox = document.getElementById('favorite')
 
-function selectChosenElement() {
-  let cartelemen = document.querySelectorAll('.card')
+let cartelemen = document.querySelectorAll('.card')
 
+function selectChosenElement() {
+  console.log(cartelemen)
   cartelemen.forEach((element) => {
     let elementsOfChoosen = []
     element.addEventListener('click', (Event) => {
@@ -14,6 +17,7 @@ function selectChosenElement() {
         element.remove()
       }
       element.setAttribute('data-id', '4')
+
       elementsOfChoosen.push(element)
       saveChosenElement(elementsOfChoosen)
     })

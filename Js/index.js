@@ -6,9 +6,14 @@ import { getSearching } from './function-search.js'
 
 import { getToken, getFilmsData, arr } from './Api-request.js'
 
+import { saveChosenElement, selectChosenElement } from './save-chosen.js'
+
 sortByRating()
 sortByDate()
 sortbyTotalSum()
+
+saveChosenElement()
+selectChosenElement()
 
 getToken()
 getSearching()
