@@ -2,33 +2,38 @@ import { madeCardsFilms, getFilmsCards } from './gener-cart.js'
 
 import { getSearching } from './function-search.js'
 
-import { getToken, getFilmsData, arr } from './Api-request.js'
+import { saveChosenElement, selectChosenElement } from './save-chosen.js'
 
-const buttonrating = document.getElementById('rating')
+const BUTTON_RATING = document.getElementById('rating')
 const buttonreleaseDate = document.getElementById('releaseDate')
 const buttonboxOffice = document.getElementById('boxOffice')
 
 function sortByRating(arr) {
   const gettargeteleme = document.querySelector('.search__input')
-  buttonrating.addEventListener('click', () => {
+
+  BUTTON_RATING.addEventListener('click', () => {
     gettargeteleme.addEventListener('click', () => {
-      buttonrating.classList.remove('button_checked')
+      BUTTON_RATING.classList.remove('button_checked')
       getSearching(arr)
     })
 
-    buttonrating.classList.add('button_checked')
+    BUTTON_RATING.classList.add('button_checked')
     buttonreleaseDate.classList.remove('button_checked')
     buttonboxOffice.classList.remove('button_checked')
+    let newobj = []
 
-    let newobj = arr.sort((a, b) => {
+    newobj = arr.sort(function (a, b) {
       return a.imdbRating - b.imdbRating
     })
 
     const cardElement = document.querySelectorAll('.card')
+
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
     }
 
+    selectChosenElement()
+    saveChosenElement()
     madeCardsFilms(newobj)
   })
 }
@@ -37,7 +42,7 @@ function sortByDate(arr) {
   buttonreleaseDate.addEventListener('click', () => {
     const gettargeteleme = document.querySelector('.search__input')
     buttonreleaseDate.classList.add('button_checked')
-    buttonrating.classList.remove('button_checked')
+    BUTTON_RATING.classList.remove('button_checked')
     buttonboxOffice.classList.remove('button_checked')
 
     gettargeteleme.addEventListener('click', () => {
@@ -63,7 +68,7 @@ function sortbyTotalSum(arr) {
 
     buttonboxOffice.classList.add('button_checked')
     buttonreleaseDate.classList.remove('button_checked')
-    buttonrating.classList.remove('button_checked')
+    BUTTON_RATING.classList.remove('button_checked')
 
     gettargeteleme.addEventListener('click', () => {
       buttonboxOffice.classList.remove('button_checked')
@@ -74,7 +79,6 @@ function sortbyTotalSum(arr) {
       return Number(a.BoxOffice) - Number(b.BoxOffice)
     })
 
-    console.log(newobj)
     const cardElement = document.querySelectorAll('.card')
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
