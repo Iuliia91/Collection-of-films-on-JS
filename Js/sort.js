@@ -2,7 +2,7 @@ import { madeCardsFilms, getFilmsCards } from './gener-cart.js'
 
 import { getSearching } from './function-search.js'
 
-import { saveChosenElement, selectChosenElement } from './save-chosen.js'
+import { selectChosenElement } from './save-chosen.js'
 
 const BUTTON_RATING = document.getElementById('rating')
 const BUTTON_RELEASE_DATE = document.getElementById('releaseDate')
@@ -34,7 +34,6 @@ function sortByRating(arr) {
 
     madeCardsFilms(newobj)
     selectChosenElement(newobj)
-    saveChosenElement()
   })
 }
 
@@ -59,6 +58,7 @@ function sortByDate(arr) {
       cardElement[i].remove()
     }
     madeCardsFilms(newobj)
+    selectChosenElement(newobj)
   })
 }
 
@@ -85,6 +85,7 @@ function sortbyTotalSum(arr) {
     }
 
     madeCardsFilms(newobj)
+    selectChosenElement(newobj)
   })
 }
 

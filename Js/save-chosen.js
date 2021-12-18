@@ -6,10 +6,8 @@ const elemcheckbox = document.getElementById('favorite')
 
 function selectChosenElement(arr) {
   let cartelemen = document.querySelectorAll('.card')
-
+  let elementsOfChoosen = []
   cartelemen.forEach((element) => {
-    let elementsOfChoosen = []
-
     element.addEventListener('click', (Event) => {
       const { target } = Event
       if (!target.classList.contains('button__icon-svg')) {
@@ -18,8 +16,9 @@ function selectChosenElement(arr) {
       element.remove()
       element.setAttribute('data-id', '4')
       elementsOfChoosen.push(element)
-      saveChosenElement(elementsOfChoosen)
+      console.log(elementsOfChoosen)
     })
+    saveChosenElement(elementsOfChoosen)
   })
 }
 
