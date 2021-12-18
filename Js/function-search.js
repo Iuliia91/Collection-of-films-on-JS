@@ -5,6 +5,7 @@ function getSearching(arr) {
 
   inputElem.oninput = (Event) => {
     const cardElement = document.querySelectorAll('.card')
+
     const titelelem = document.querySelectorAll('.card-header__title')
 
     let userText = Event.target.value

@@ -4,32 +4,30 @@ getToken()
 
 const elemcheckbox = document.getElementById('favorite')
 
-let cartelemen = document.querySelectorAll('.card')
-
-function selectChosenElement() {
+function selectChosenElement(arr) {
+  let cartelemen = document.querySelectorAll('.card')
   console.log(cartelemen)
   cartelemen.forEach((element) => {
     let elementsOfChoosen = []
-    element.addEventListener('click', (Event) => {
-      const { target } = Event
 
+    element.addEventListener('click', (Event) => {
+      console.log(element)
+      const { target } = Event
       if (target.classList.contains('button__icon-svg')) {
         element.remove()
       }
       element.setAttribute('data-id', '4')
-
       elementsOfChoosen.push(element)
       saveChosenElement(elementsOfChoosen)
+      madeCardsFilms(arr)
     })
   })
 }
 
 function saveChosenElement(arr) {
   let cartelemen = document.querySelectorAll('.card')
-
   elemcheckbox.addEventListener('click', (Event) => {
     const { target } = Event
-
     if (!target.classList.contains('filter__check')) {
       return
     }
@@ -38,7 +36,6 @@ function saveChosenElement(arr) {
         cartelemen[i].remove()
       }
     }
-
     console.log(arr)
     for (let i = 0; i < arr.length; i++) {
       const elmaddtochosen = arr[i].querySelector('.card__footer>.button')

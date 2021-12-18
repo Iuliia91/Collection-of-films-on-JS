@@ -33,7 +33,7 @@ function getFilmsCards(arr) {
 
   sortbyTotalSum(newarr)
   getSearching(newarr)
-  saveChosenElement()
+  saveChosenElement(newarr)
   selectChosenElement()
   madeCardsFilms(newarr)
 
@@ -78,6 +78,7 @@ function madeCardsFilms(data) {
 
     areaofcards.appendChild(clonbox)
   })
+
   return
 }
 

@@ -12,9 +12,8 @@ sortByRating()
 sortByDate()
 sortbyTotalSum()
 
-saveChosenElement()
-selectChosenElement()
-
 getToken()
 getSearching()
-getFilmsCards
+
+saveChosenElement()
+selectChosenElement()
