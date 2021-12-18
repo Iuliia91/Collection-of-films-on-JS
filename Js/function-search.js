@@ -27,6 +27,7 @@ function getSearching(arr) {
       })
       madeCardsFilms(arr)
     }
+    selectChosenElement(element)
   }
 }
 
