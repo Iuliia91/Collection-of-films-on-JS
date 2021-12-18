@@ -5,8 +5,8 @@ import { getSearching } from './function-search.js'
 import { saveChosenElement, selectChosenElement } from './save-chosen.js'
 
 const BUTTON_RATING = document.getElementById('rating')
-const buttonreleaseDate = document.getElementById('releaseDate')
-const buttonboxOffice = document.getElementById('boxOffice')
+const BUTTON_RELEASE_DATE = document.getElementById('releaseDate')
+const BUTTON_BOXOFFICE = document.getElementById('boxOffice')
 
 function sortByRating(arr) {
   const gettargeteleme = document.querySelector('.search__input')
@@ -18,8 +18,8 @@ function sortByRating(arr) {
     })
 
     BUTTON_RATING.classList.add('button_checked')
-    buttonreleaseDate.classList.remove('button_checked')
-    buttonboxOffice.classList.remove('button_checked')
+    BUTTON_RELEASE_DATE.classList.remove('button_checked')
+    BUTTON_BOXOFFICE.classList.remove('button_checked')
     let newobj = []
 
     newobj = arr.sort(function (a, b) {
@@ -39,14 +39,14 @@ function sortByRating(arr) {
 }
 
 function sortByDate(arr) {
-  buttonreleaseDate.addEventListener('click', () => {
+  BUTTON_RELEASE_DATE.addEventListener('click', () => {
     const gettargeteleme = document.querySelector('.search__input')
-    buttonreleaseDate.classList.add('button_checked')
+    BUTTON_RELEASE_DATE.classList.add('button_checked')
     BUTTON_RATING.classList.remove('button_checked')
-    buttonboxOffice.classList.remove('button_checked')
+    BUTTON_BOXOFFICE.classList.remove('button_checked')
 
     gettargeteleme.addEventListener('click', () => {
-      buttonreleaseDate.classList.remove('button_checked')
+      BUTTON_RELEASE_DATE.classList.remove('button_checked')
       getSearching(arr)
     })
 
@@ -63,15 +63,15 @@ function sortByDate(arr) {
 }
 
 function sortbyTotalSum(arr) {
-  buttonboxOffice.addEventListener('click', () => {
+  BUTTON_BOXOFFICE.addEventListener('click', () => {
     const gettargeteleme = document.querySelector('.search__input')
 
-    buttonboxOffice.classList.add('button_checked')
-    buttonreleaseDate.classList.remove('button_checked')
+    BUTTON_BOXOFFICE.classList.add('button_checked')
+    BUTTON_RELEASE_DATE.classList.remove('button_checked')
     BUTTON_RATING.classList.remove('button_checked')
 
     gettargeteleme.addEventListener('click', () => {
-      buttonboxOffice.classList.remove('button_checked')
+      BUTTON_BOXOFFICE.classList.remove('button_checked')
       getSearching(arr)
     })
 

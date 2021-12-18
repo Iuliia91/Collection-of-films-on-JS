@@ -1,4 +1,4 @@
-import { madeCardsFilms, getFilmsCards } from './gener-cart.js'
+import { getFilmsCards } from './gener-cart.js'
 
 function getToken() {
   return fetch('https://fe08-films.herokuapp.com/auth', {
@@ -13,7 +13,6 @@ function getToken() {
     })
 }
 
-export let arr = []
 function getFilmsData(token) {
   fetch('https://fe08-films.herokuapp.com/films', {
     method: 'GET',
@@ -27,7 +26,7 @@ function getFilmsData(token) {
       getFilmsCards(data.films)
     })
 
-  return arr
+  return
 }
 
 export { getFilmsData, getToken }

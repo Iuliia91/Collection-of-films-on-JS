@@ -1,5 +1,5 @@
 import { madeCardsFilms, getFilmsCards, areaofcards } from './gener-cart.js'
-import { getToken, getFilmsData, arr } from './Api-request.js'
+import { getToken, getFilmsData } from './Api-request.js'
 getToken()
 
 const elemcheckbox = document.getElementById('favorite')
@@ -29,18 +29,19 @@ function saveChosenElement(arr1) {
   elemcheckbox.addEventListener('click', (Event) => {
     let cartelemen = document.querySelectorAll('.card')
 
+    for (let item of cartelemen) {
+      item.innerHTML = ''
+    }
     const { target } = Event
 
     if (!target.classList.contains('.filter__check')) {
     }
-    for (let item of cartelemen) {
-      item.remove()
-    }
-    console.log(arr1)
+
     for (let i = 0; i < arr1.length; i++) {
-      if (!arr1[i].hasAttribute('data-id')) {
-        arr1[i].remove()
-      }
+      arr1[i].remove()
+      // if (!arr1[i].hasAttribute('data-id')) {
+      //   arr1[i].remove()
+      // }
       const elmaddtochosen = arr1[i].querySelector('.card__footer>.button')
       elmaddtochosen.classList.remove('button_add')
       elmaddtochosen.classList.add('button_remove')

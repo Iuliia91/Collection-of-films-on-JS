@@ -1,7 +1,7 @@
 import { getSearching } from './function-search.js'
 
 import { sortByRating, sortByDate, sortbyTotalSum } from './sort.js'
-import { saveChosenElement, selectChosenElement } from './save-chosen.js'
+import { selectChosenElement } from './save-chosen.js'
 
 export let areaofcards = document.querySelector('.film-list')
 
@@ -33,7 +33,7 @@ function getFilmsCards(arr) {
 
   sortbyTotalSum(newarr)
   getSearching(newarr)
-  saveChosenElement()
+
   selectChosenElement(newarr)
   madeCardsFilms(newarr)
 
@@ -69,7 +69,7 @@ function madeCardsFilms(data) {
     const elemttotalSum = clonbox.querySelector(
       '.film-info__box-office>.film-info__text'
     )
-    elemttotalSum.textContent = item.BoxOffice
+    elemttotalSum.textContent = `$${item.BoxOffice}`
 
     const elementabout = clonbox.querySelector(
       '.film-info__plot>.film-info__text'
