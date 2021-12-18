@@ -6,16 +6,17 @@ const elemcheckbox = document.getElementById('favorite')
 
 function selectChosenElement(arr) {
   let cartelemen = document.querySelectorAll('.card')
-  console.log(cartelemen)
+
   cartelemen.forEach((element) => {
     let elementsOfChoosen = []
 
     element.addEventListener('click', (Event) => {
       console.log(element)
       const { target } = Event
-      if (target.classList.contains('button__icon-svg')) {
-        element.remove()
+      if (!target.classList.contains('button__icon-svg')) {
+        return
       }
+      element.remove()
       element.setAttribute('data-id', '4')
       elementsOfChoosen.push(element)
       saveChosenElement(elementsOfChoosen)
@@ -24,24 +25,26 @@ function selectChosenElement(arr) {
   })
 }
 
-function saveChosenElement(arr) {
-  let cartelemen = document.querySelectorAll('.card')
+function saveChosenElement(arr1) {
   elemcheckbox.addEventListener('click', (Event) => {
+    let cartelemen = document.querySelectorAll('.card')
+
     const { target } = Event
-    if (!target.classList.contains('filter__check')) {
-      return
+
+    if (!target.classList.contains('.filter__check')) {
     }
-    for (let i = 0; i < cartelemen.length; i++) {
-      if (!cartelemen[i].hasAttribute('4')) {
-        cartelemen[i].remove()
+    for (let item of cartelemen) {
+      item.remove()
+    }
+    console.log(arr1)
+    for (let i = 0; i < arr1.length; i++) {
+      if (!arr1[i].hasAttribute('data-id')) {
+        arr1[i].remove()
       }
-    }
-    console.log(arr)
-    for (let i = 0; i < arr.length; i++) {
-      const elmaddtochosen = arr[i].querySelector('.card__footer>.button')
+      const elmaddtochosen = arr1[i].querySelector('.card__footer>.button')
       elmaddtochosen.classList.remove('button_add')
       elmaddtochosen.classList.add('button_remove')
-      areaofcards.append(arr[i])
+      areaofcards.append(arr1[i])
     }
   })
 }

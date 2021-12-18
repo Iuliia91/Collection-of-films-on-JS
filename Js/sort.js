@@ -27,13 +27,13 @@ function sortByRating(arr) {
     })
 
     const cardElement = document.querySelectorAll('.card')
-    console.log(cardElement)
+
     for (let i = 0; i < cardElement.length; i++) {
       cardElement[i].remove()
     }
 
     madeCardsFilms(newobj)
-    selectChosenElement()
+    selectChosenElement(newobj)
     saveChosenElement()
   })
 }
