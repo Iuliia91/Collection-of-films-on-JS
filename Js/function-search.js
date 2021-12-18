@@ -3,7 +3,7 @@ import { saveChosenElement, selectChosenElement } from './save-chosen.js'
 
 function getSearching(arr) {
   const inputElem = document.querySelector('.search__input')
-
+  console.log(arr)
   inputElem.oninput = (Event) => {
     const cardElement = document.querySelectorAll('.card')
 
@@ -19,6 +19,7 @@ function getSearching(arr) {
             .innerHTML.search(userText) == -1
         ) {
           element.remove()
+          selectChosenElement(element)
         }
       })
     } else {
@@ -27,7 +28,6 @@ function getSearching(arr) {
       })
       madeCardsFilms(arr)
     }
-    selectChosenElement(element)
   }
 }
 
