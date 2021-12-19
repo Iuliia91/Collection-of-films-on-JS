@@ -4,11 +4,11 @@ function getToken() {
   })
     .then((tocken) => tocken.json())
     .then((tocken) => {
-      let tk = Object.values(tocken)
+      let token = Object.values(tocken)
 
-      const tokenk = tk[0]
+      const TOKENK = token[0]
 
-      return tokenk
+      return TOKENK
     })
 }
 
@@ -22,8 +22,8 @@ function getFilmsData(token) {
   })
     .then((data) => data.json())
     .then((data) => {
-      const dataFilms = data.films
-      return dataFilms
+      const DATA_FILMS = data.films
+      return DATA_FILMS
     })
 }
 
