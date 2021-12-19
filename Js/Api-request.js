@@ -1,5 +1,3 @@
-import { getFilmsCards } from './gener-cart.js'
-
 function getToken() {
   return fetch('https://fe08-films.herokuapp.com/auth', {
     method: 'POST',
@@ -9,12 +7,13 @@ function getToken() {
       let tk = Object.values(tocken)
 
       const tokenk = tk[0]
-      getFilmsData(tokenk)
+
+      return tokenk
     })
 }
 
 function getFilmsData(token) {
-  fetch('https://fe08-films.herokuapp.com/films', {
+  return fetch('https://fe08-films.herokuapp.com/films', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -23,10 +22,9 @@ function getFilmsData(token) {
   })
     .then((data) => data.json())
     .then((data) => {
-      getFilmsCards(data.films)
+      const dataFilms = data.films
+      return dataFilms
     })
-
-  return
 }
 
 export { getFilmsData, getToken }

@@ -2,8 +2,13 @@ import { getSearching } from './function-search.js'
 
 import { sortByRating, sortByDate, sortbyTotalSum } from './sort.js'
 import { selectChosenElement } from './save-chosen.js'
+import { getFilmsData, getToken } from './Api-request.js'
 
 export let areaofcards = document.querySelector('.film-list')
+
+getToken()
+  .then((token) => getFilmsData(token))
+  .then((data) => getFilmsCards(data))
 
 function getFilmsCards(arr) {
   const filmsarr = arr
