@@ -1,5 +1,5 @@
 import { areaofcards } from './gener-cart.js'
-import { getToken } from './Api-request.js'
+import { getToken } from './api-request.js'
 getToken()
 
 const elemcheckbox = document.getElementById('favorite')

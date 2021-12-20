@@ -1,18 +1,10 @@
-import { madeCardsFilms, areaofcards, getFilmsCards } from './gener-cart.js'
+import { getFilmsCards } from './gener-cart.js'
 
-import { sortByRating, sortByDate, sortbyTotalSum } from './sort.js'
-
-import { getSearching } from './function-search.js'
-
-import { getToken, getFilmsData } from './Api-request.js'
-
-import { saveChosenElement, selectChosenElement } from './save-chosen.js'
+import { getToken, getFilmsData } from './api-request.js'
 
 getToken()
-//getFilmsData().then((data) => console.log(data))
+  .then((token) => getFilmsData(token))
+  .then((data) => getFilmsCards(data))
 
-// console.log(getFilmsData(getToken()))
-// getSearching()
-
-// saveChosenElement()
-// selectChosenElement()
+// const BUTTON_FOR_SORTING = document.querySelectorAll('.sorting__titel>.button')
+// console.log(BUTTON_FOR_SORTING)
