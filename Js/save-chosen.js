@@ -1,6 +1,5 @@
 import { areaofcards } from './gener-cart.js'
-import { getToken } from './api-request.js'
-getToken()
+import { removeClass, BUTTON_FOR_SORTING } from './sort.js'
 
 const elemcheckbox = document.getElementById('favorite')
 
@@ -14,9 +13,8 @@ function selectChosenElement(arr) {
         return
       }
       element.remove()
-      element.setAttribute('data-id', '4')
+      element.setAttribute('data-favorit', 'true')
       elementsOfChoosen.push(element)
-      console.log(elementsOfChoosen)
     })
     saveChosenElement(elementsOfChoosen)
   })
@@ -25,6 +23,8 @@ function selectChosenElement(arr) {
 function saveChosenElement(arr1) {
   elemcheckbox.addEventListener('click', (Event) => {
     let cartelemen = document.querySelectorAll('.card')
+
+    removeClass(BUTTON_FOR_SORTING, 'button_checked')
 
     for (let item of cartelemen) {
       item.remove()
@@ -36,7 +36,7 @@ function saveChosenElement(arr1) {
 
     for (let i = 0; i < arr1.length; i++) {
       arr1[i].remove()
-      if (!arr1[i].hasAttribute('data-id')) {
+      if (!arr1[i].hasAttribute('data-favorit')) {
         arr1[i].remove()
       }
       const elmaddtochosen = arr1[i].querySelector('.card__footer>.button')

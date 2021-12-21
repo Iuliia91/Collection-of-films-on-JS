@@ -4,10 +4,20 @@ import { selectChosenElement } from './save-chosen.js'
 
 export let areaofcards = document.querySelector('.film-list')
 
+function deleteALLCards() {
+  const cardElement = document.querySelectorAll('.card')
+
+  for (let i = 0; i < cardElement.length; i++) {
+    cardElement[i].remove()
+  }
+}
+
 function getFilmsCards(arr) {
   const filmsarr = arr
   let newarr = filmsarr.map((element) => {
+    element.BoxOffice = element.BoxOffice.replace(/,/g, '')
     element.BoxOffice = element.BoxOffice.replace('$', '')
+
     if (element.BoxOffice == 'N/A') {
       element.BoxOffice = 0
     }
@@ -65,8 +75,8 @@ function madeCardsFilms(data) {
     const elemttotalSum = clonbox.querySelector(
       '.film-info__box-office>.film-info__text'
     )
-    elemttotalSum.textContent = `$${item.BoxOffice}`
 
+    elemttotalSum.textContent = `$${item.BoxOffice}`
     const elementabout = clonbox.querySelector(
       '.film-info__plot>.film-info__text'
     )
@@ -78,4 +88,4 @@ function madeCardsFilms(data) {
   return
 }
 
-export { madeCardsFilms, getFilmsCards }
+export { madeCardsFilms, getFilmsCards, deleteALLCards }
