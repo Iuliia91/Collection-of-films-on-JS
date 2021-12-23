@@ -6,16 +6,39 @@ const elemcheckbox = document.getElementById('favorite')
 function selectChosenElement(arr) {
   let cartelemen = document.querySelectorAll('.card')
   let elementsOfChoosen = []
+
+  // cartelemen.map((element) => {
+  //   element.addEventListener('click', (Event) => {
+  //     const { target } = Event
+  //     if (!target.classList.contains('button__icon-svg')) {
+  //       return
+  //     }
+  //     //element.innerHTML = ''
+  //     //element.remove()
+
+  //     element.setAttribute('data-favorit', 'true')
+  //     //elementsOfChoosen.push(element)
+  //     console.log(element)
+  //   })
+
+  //   saveChosenElement(elementsOfChoosen)
+  // })
+
   cartelemen.forEach((element) => {
     element.addEventListener('click', (Event) => {
       const { target } = Event
       if (!target.classList.contains('button__icon-svg')) {
         return
       }
-      element.remove()
+      //element.innerHTML = ''
+      //element.remove()
+
       element.setAttribute('data-favorit', 'true')
-      elementsOfChoosen.push(element)
+      //elementsOfChoosen.push(element)
+      // cartelemen.push(element)
+      console.log(cartelemen)
     })
+
     saveChosenElement(elementsOfChoosen)
   })
 }

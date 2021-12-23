@@ -16,6 +16,7 @@ function getFilmsCards(arr) {
   const filmsarr = arr
   let newarr = filmsarr.map((element) => {
     element.BoxOffice = element.BoxOffice.replace(/,/g, '')
+
     element.BoxOffice = element.BoxOffice.replace('$', '')
 
     if (element.BoxOffice == 'N/A') {
