@@ -1,72 +1,66 @@
-import { areaofcards } from './gener-cart.js'
 import { removeClass, BUTTON_FOR_SORTING } from './sort.js'
 
 const elemcheckbox = document.getElementById('favorite')
 
-function selectChosenElement(arr) {
+function selectChosenElement() {
   let cartelemen = document.querySelectorAll('.card')
+
   let elementsOfChoosen = []
-
-  // cartelemen.map((element) => {
-  //   element.addEventListener('click', (Event) => {
-  //     const { target } = Event
-  //     if (!target.classList.contains('button__icon-svg')) {
-  //       return
-  //     }
-  //     //element.innerHTML = ''
-  //     //element.remove()
-
-  //     element.setAttribute('data-favorit', 'true')
-  //     //elementsOfChoosen.push(element)
-  //     console.log(element)
-  //   })
-
-  //   saveChosenElement(elementsOfChoosen)
-  // })
 
   cartelemen.forEach((element) => {
     element.addEventListener('click', (Event) => {
       const { target } = Event
+
       if (!target.classList.contains('button__icon-svg')) {
         return
       }
-      //element.innerHTML = ''
-      //element.remove()
+
+      element.remove()
 
       element.setAttribute('data-favorit', 'true')
-      //elementsOfChoosen.push(element)
-      // cartelemen.push(element)
-      console.log(cartelemen)
-    })
+      const elmaddtochosen = element.querySelector(
+        '.card__footer >.card__button'
+      )
 
-    saveChosenElement(elementsOfChoosen)
+      elmaddtochosen.classList.remove('button_add')
+      elmaddtochosen.classList.add('button_remove')
+
+      elementsOfChoosen.push(element)
+
+      saveChosenElement(elementsOfChoosen)
+
+      //let tips = localStorage.element.innerHTML
+      console.log(cartelemen)
+
+      let b = document.querySelectorAll('#card-template')
+      console.log(b)
+      localStorage.setItem('test', b)
+    })
   })
+}
+
+window.onload = function () {
+  let m = localStorage.getItem('test')
+  console.log(m)
 }
 
 function saveChosenElement(arr1) {
   elemcheckbox.addEventListener('click', (Event) => {
     let cartelemen = document.querySelectorAll('.card')
-
+    let areaofcards = document.querySelector('.film-list')
     removeClass(BUTTON_FOR_SORTING, 'button_checked')
+
+    const { target } = Event
 
     for (let item of cartelemen) {
       item.remove()
     }
-    const { target } = Event
 
-    if (!target.classList.contains('.filter__check')) {
-    }
-
-    for (let i = 0; i < arr1.length; i++) {
-      arr1[i].remove()
-      if (!arr1[i].hasAttribute('data-favorit')) {
-        arr1[i].remove()
+    arr1.forEach((element) => {
+      if (element.hasAttribute('data-favorit')) {
+        areaofcards.append(element)
       }
-      const elmaddtochosen = arr1[i].querySelector('.card__footer>.button')
-      elmaddtochosen.classList.remove('button_add')
-      elmaddtochosen.classList.add('button_remove')
-      areaofcards.append(arr1[i])
-    }
+    })
   })
 }
 

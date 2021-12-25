@@ -60,7 +60,7 @@ function sortingElements(arr) {
     }
 
     madeCardsFilms(newobj)
-    selectChosenElement(newobj)
+    selectChosenElement()
   })
 }
 
