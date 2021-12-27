@@ -14,7 +14,6 @@ function selectChosenElement() {
       if (target.classList.contains('button_add')) {
         element.remove()
 
-        element.setAttribute('data-favorit', 'true')
         const elmaddtochosen = element.querySelector(
           '.card__footer >.card__button'
         )
@@ -25,29 +24,38 @@ function selectChosenElement() {
         elementsOfChoosen.push(element.innerHTML)
 
         localStorage.setItem('test', JSON.stringify(elementsOfChoosen))
-        deleteselectivelement(cartelemen)
       }
     })
   })
+  deleteselectivelement(cartelemen)
 }
 
 function deleteselectivelement(arr) {
   console.log(arr)
   const areaofcards = document.querySelector('.film-list')
-  let cartelemen = document.querySelectorAll('.card')
+  let cartelemens = document.querySelectorAll('.card')
 
   let m = []
+  let b = []
+
   JSON.parse(localStorage.getItem('test')).forEach((item) => {
     let cartElement = document.createElement('div')
     cartElement.classList.add('card')
+    cartElement.setAttribute('data-favorit', 'true')
     cartElement.insertAdjacentHTML('afterBegin', item)
-    console.log(cartElement)
     m.push(cartElement)
-
-    return cartElement
+    return m
   })
-  let b = cartelemen.concat(m)
-  console.log(b)
+
+  console.log(m)
+  for (let i = 0; i <= arr; i++) {
+    for (let j = 0; j <= m; j++) {
+      console.log(m[j])
+      if (arr[i] == m[j]) {
+        arr[i].rremove()
+      }
+    }
+  }
 }
 
 function saveChosenElement() {
@@ -61,6 +69,7 @@ function saveChosenElement() {
     JSON.parse(localStorage.getItem('test')).forEach((item) => {
       let cartElement = document.createElement('div')
       cartElement.classList.add('card')
+      cartElement.setAttribute('data-favorit', 'true')
       cartElement.insertAdjacentHTML('afterBegin', item)
       areaofcards.append(cartElement)
     })
@@ -87,4 +96,4 @@ function saveChosenElement() {
   })
 }
 
-export { saveChosenElement, selectChosenElement }
+export { saveChosenElement, selectChosenElement, deleteselectivelement }

@@ -1,6 +1,10 @@
 import { getSearching } from './function-search.js'
 import { sortingElements } from './sort.js'
-import { selectChosenElement, saveChosenElement } from './save-chosen.js'
+import {
+  selectChosenElement,
+  saveChosenElement,
+  deleteselectivelement,
+} from './save-chosen.js'
 
 export let areaofcards = document.querySelector('.film-list')
 
