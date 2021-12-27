@@ -42,8 +42,9 @@ function getFilmsCards(arr) {
   getSearching(newarr)
 
   madeCardsFilms(newarr)
-  saveChosenElement(newarr)
+  saveChosenElement()
   selectChosenElement()
+
   return newarr
 }
 
