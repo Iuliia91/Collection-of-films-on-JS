@@ -36,26 +36,28 @@ function deleteselectivelement(arr) {
   let cartelemens = document.querySelectorAll('.card')
 
   let m = []
-  let b = []
+  let b
 
   JSON.parse(localStorage.getItem('test')).forEach((item) => {
     let cartElement = document.createElement('div')
     cartElement.classList.add('card')
-    cartElement.setAttribute('data-favorit', 'true')
+    //cartElement.setAttribute('data-favorit', 'true')
     cartElement.insertAdjacentHTML('afterBegin', item)
     m.push(cartElement)
     return m
+  }),
+    arr.forEach((item) => {
+      m.push(item)
+      return
+    })
+
+  b = m.filter((item, index) => {
+    m.indexOf(item) === index
   })
 
+  b.forEach((item) => areaofcards.append(item))
+  console.log(b)
   console.log(m)
-  for (let i = 0; i <= arr; i++) {
-    for (let j = 0; j <= m; j++) {
-      console.log(m[j])
-      if (arr[i] == m[j]) {
-        arr[i].rremove()
-      }
-    }
-  }
 }
 
 function saveChosenElement() {
